@@ -1,4 +1,4 @@
-var socket = io.connect('https://yuehtingchen.github.io/multiplayer-bomb/');
+var socket = io.connect('https://yuehtingchen.github.io/multiplayer-bomb/public/');
 
 let enemyBombs = [];
 let playerBombs = [];
