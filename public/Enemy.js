@@ -1,8 +1,8 @@
-class Player {
+class Enemy {
   constructor(player) {
     this.name = player.name;
-    this.x = player.x;
-    this.y = player.y;
+    this.x = windowWidth / 2;
+    this.y = 20;
     this.id = player.id;
     this.rgb = player.rgb;
   }
