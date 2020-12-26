@@ -2,6 +2,7 @@ class EnemyBomb {
   constructor(bomb) {
     this.a = windowWidth / 2;
     this.b = 20;
+    
     this.x = this.a;
     this.y = this.b;
     this.r = 20;

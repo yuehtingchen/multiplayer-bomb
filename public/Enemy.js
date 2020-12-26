@@ -11,7 +11,8 @@ class Enemy {
     noStroke();
     fill(this.rgb.r, this.rgb.g, this.rgb.b);
     circle(this.x, this.y, 20);
-    fill(0);
+    noStroke();
+    fill(255);
     textAlign(CENTER, CENTER);
     text(`${this.name}`, this.x, this.y);
   }

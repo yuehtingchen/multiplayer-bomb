@@ -40,13 +40,6 @@ class Bomb {
     ellipse(this.x, this.y, this.r, this.r);
   }
 
-  collided() {
-    backgroundColor = this.color;
-    setTimeout(() => {
-      backgroundColor = color(0);
-    }, 250);
-  }
-
   offScreen() {
     return this.y < 0 || this.x < 0 || this.x > windowWidth;
   }
