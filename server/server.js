@@ -3,8 +3,8 @@ const socket = require('socket.io');
 const app = express();
 let Player = require("./Player");
 
-let server = app.listen(80);
-console.log('The server is now running at http://localhost/');
+let server = app.listen(3000);
+console.log('The server is now running at https://yuehtingchen.github.io/multiplayer-bomb/public/');
 app.use(express.static("public"));
 
 
