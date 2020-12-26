@@ -3,7 +3,7 @@ const socket = require('socket.io');
 const app = express();
 let Player = require("./Player");
 
-let server = app.listen(3000);
+let server = app.listen(443);
 console.log('The server is now running at https://yuehtingchen.github.io/multiplayer-bomb/public/');
 app.use(express.static("public"));
 
