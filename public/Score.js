@@ -21,11 +21,18 @@ class Score {
   }
   
   draw(x, y) {
+    textAlign(LEFT, CENTER);
+    textSize(24);
     fill(255);
     stroke(255);
-    textSize(24);
-    textAlign(LEFT, CENTER)
-    text(`Health: ${this.health}`, x, y);
+    text('Health', x , y);
     text(`Stock: ${this.stock}`, x, y + 30);
+    
+    noStroke();
+    fill(255, 0, 0);
+    rect(x + 80, y - 8, 120 * (this.health / 100), 15);
+    stroke(255);
+    noFill();
+    rect(x + 80, y - 8, 120, 15);
   }
 }

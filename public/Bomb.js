@@ -4,7 +4,7 @@ class Bomb {
     this.y = windowHeight - 20;
     this.r = 20;
 
-    this.vel = 20;
+    this.vel = 5;
     this.dirR = 0;
     this.endX = endX;
     this.endY = endY;

@@ -7,12 +7,13 @@ let server = app.listen(3000);
 console.log('The server is now running at https://multiplayer-bomb.glitch.me/');
 app.use(express.static("public"));
 
-
 let io = socket(server);
 
 const MAX_PLAYERS = 2;
 let players = [];
+let playersStart = [];
 let totalPlayers = 0;
+let gameStart = false;
 
 setInterval(updateGame, 16);
 
@@ -26,6 +27,10 @@ io.sockets.on("connection", socket => {
     io.sockets.to(`${socket.id}`).emit("sendId", socket.id);
     socket.on("addPlayer", clientPlayer => addPlayer(clientPlayer));
   }
+  
+  socket.on("pressStart", clientPlayer => {
+    playersStart.push(new Player(clientPlayer));
+  });
 
   socket.on("update", clientPlayer => {
     players = players.filter(player => player.id !== clientPlayer.id);
@@ -44,11 +49,15 @@ io.sockets.on("connection", socket => {
   });
 });
 
+if(playersStart.length === MAX_PLAYERS) {
+  io.sockets.emit("gameStart");
+}
 
 io.sockets.on("disconnect", socket => {
   io.sockets.emit("disconnect", socket.id);
   console.log(`disconnected to ${socket.id}`);
   players = players.filter(player => player.id !== socket.id);
+  playersStart = playersStart.filter(player => player.id !== socket.id);
   totalPlayers --;
 });
 

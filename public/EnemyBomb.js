@@ -8,7 +8,8 @@ class EnemyBomb {
     this.r = 20;
 
     this.vel = bomb.vel;
-    this.dirR = 0;
+    //make up for server client process time
+    this.dirR = bomb.vel * 14;
     this.endX = bomb.endX;
     this.endY = bomb.endY;
 
